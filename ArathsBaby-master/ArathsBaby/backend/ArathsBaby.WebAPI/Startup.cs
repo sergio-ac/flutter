@@ -29,7 +29,7 @@ namespace ArathsBaby.WebAPI
         {
             services.AddControllers();
             services.AddDbContext<ArathsBabyContext>(options => 
-                    options.UseSqlServer(Configuration.GetConnectionString("ArathsBabyContext"), x => x.MigrationsAssembly("ArathsBaby.Infrastructure")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("ArathsBaby.Infrastructure")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
