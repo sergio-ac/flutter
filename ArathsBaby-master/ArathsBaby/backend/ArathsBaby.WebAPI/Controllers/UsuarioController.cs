@@ -7,13 +7,11 @@ using Newtonsoft.Json;
 namespace ArathsBaby.WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[action]")]
     public class UsuarioController : ControllerBase
     {
         [HttpGet]
-        public String prueba(){
-            return "hola";
-        }
+        
         public String despedida(){
             return "adios";
         }

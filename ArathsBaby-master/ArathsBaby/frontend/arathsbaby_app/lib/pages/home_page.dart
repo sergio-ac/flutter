@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import './products_page.dart';
+import './user_page.dart';
 
 class HomePage extends StatefulWidget {
     // This widget is the root of your application.
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>{
   String mainProfilePicture = "https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg";
 String otherProfilePicture ="https://cdn2.vectorstock.com/i/1000x1000/41/11/flat-business-woman-user-profile-avatar-icon-vector-4334111.jpg";
+
+
 
 void switchUser(){
   String backupString = mainProfilePicture;
@@ -27,20 +30,17 @@ void switchUser(){
             new UserAccountsDrawerHeader(
                             accountName: new Text ("Sergio Alejo"),
                             accountEmail: new Text("s@gmail.com"),
-                            currentAccountPicture: new GestureDetector(
-                              onTap:()=> switchUser(),
+                            currentAccountPicture: 
+                            new GestureDetector(
+                              onTap:(){ 
+                                Navigator.of(context).pop();
+                                Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new UserPage("Usuario")));
+                                },
                               child: new CircleAvatar(
                                 backgroundImage: new NetworkImage (mainProfilePicture),
                               ),
                             ),
-                            otherAccountsPictures: <Widget>[
-                              new GestureDetector(
-                                onTap:()=>switchUser(),
-                                child: new CircleAvatar(
-                                  backgroundImage: new NetworkImage(otherProfilePicture), 
-                                  ),
-                              )
-                            ],
+                            
                             decoration: new BoxDecoration(
                               image : new DecorationImage(
                                 fit: BoxFit.fill,
@@ -49,22 +49,37 @@ void switchUser(){
                             ),
             ),
             new ListTile(
-              title: new Text("First Page"),
-              trailing: new Icon(Icons.arrow_upward),
+              title: new Text("Productos"),
+              trailing: new Icon(Icons.view_list),
+              onTap: () {
+                Navigator.of(context).pop();
+                 Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new ProductsPage("Productos")));
+              },
+              
             ),
             new ListTile(
-              title: new Text("Second Page"),
-              trailing: new Icon(Icons.arrow_right),
+              title: new Text("Categorias"),
+              trailing: new Icon(Icons.filter_list),
+                       
+             
             ),
+            new ListTile(
+              title: new Text("Pruebas"),
+              trailing: new Icon(Icons.new_releases),
+            ),
+            
             new Divider(),
             new ListTile(
-              title: new Text("Close"),
+              title: new Text("Cerrar"),
               trailing: new Icon(Icons.cancel),
+              onTap: () => Navigator.of(context).pop(), 
             ),
           ],
-        ),),
+        ),
+        ),
       body: new Center(
-        child: new Text("Home Page",style: new TextStyle(fontSize:35.0),),
+        
+        
     ),
     );
     

@@ -4,6 +4,31 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
+        {
+            "name":"no config",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "arathsbaby_app",
+            "type": "dart",
+            "request": "launch",
+            "program": "ArathsBaby-master/frontend/arathsbaby_app/lib/main.dart"
+        },
+        {
+            "name": "arathsbaby_app-Dev",
+            "request": "launch",
+            "type": "dart",
+            "program": "ArathsBaby-master/frontend/arathsbaby_app/lib/main_dev.dart"
+        },
+        {
+            "name": "arathsbaby_app-Stage",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_stage.dart"
+        },
+
+
         {
             "type": "chrome",
             "request": "launch",
